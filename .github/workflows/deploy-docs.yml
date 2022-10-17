@@ -18,13 +18,13 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies 
+      - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Build Storybook 
+      - name: Build Storybook
         run: npm run build-storybook
 
       - name: Deploy Storybook
-        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-statics
+        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
-          GH-TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
